@@ -1,0 +1,23 @@
+{
+  "name": "team-profile-maker",
+  "version": "1.0.0",
+  "description": "## Your Task",
+  "main": "Employee.js",
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^26.6.3"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IdFightGandhi/Team-Profile-Maker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IdFightGandhi/Team-Profile-Maker/issues"
+  },
+  "homepage": "https://github.com/IdFightGandhi/Team-Profile-Maker#readme"
+}
