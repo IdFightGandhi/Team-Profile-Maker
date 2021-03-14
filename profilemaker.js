@@ -7,3 +7,32 @@ const Manager = require('./lib/Manager');
 const employees = [];
 
 
+
+function addMember () {
+    inquirer.prompt([{
+        message: "Enter team member's name",
+        name: "name"
+    },
+    {
+        type: "list",
+        message: "Choose member job title",
+        choices: [
+            "Intern",
+            "Engineer",
+            "Manager"
+        ],
+        name: "job-title"
+    },
+    {
+        message: "Enter employee's ID number",
+        name: "id"
+    },
+    {
+        message: "Enter employee's email address",
+        name: "email"
+    }
+])
+.then (function({name, role, id, email}){
+    
+})
+}
