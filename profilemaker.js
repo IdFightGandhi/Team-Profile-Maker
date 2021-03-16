@@ -38,12 +38,15 @@ function addMember () {
 
     if (role === "Manager") {
         roleInfo = "Office Number";
+
     }else if (role === "Engineer") {
         roleInfo = "GitHub Account";
 
     }else (role === Intern) {
-        roleInfo = "School Name"
+        roleInfo = "School Name";
     }
+
+    
     }
     
 })
