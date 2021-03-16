@@ -61,7 +61,12 @@ function addMember () {
     .then(function({jobInfo, addEmployee}){
         let newEmployee;
         if (job === "Intern") {
-            newEmployee
+            newEmployee = new Intern(name, id, email, school);
+
+        }else if (role ===Engineer) {
+            newEmployee = new Engineer(name, id, email, github);
+        }else (role === Manager) {
+            newEmployee = new Manager(name, id, email, officeNumber);
         }
     })
 
