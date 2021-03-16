@@ -34,17 +34,36 @@ function addMember () {
 ])
 .then (function({name, role, id, email}){
 
-    let roleInfo = "";
+    let jobInfo = "";
 
-    if (role === "Manager") {
+    if (job === "Manager") {
         roleInfo = "Office Number";
 
-    }else if (role === "Engineer") {
+    }else if (job === "Engineer") {
         roleInfo = "GitHub Account";
 
-    }else (role === Intern) {
+    }else (job === Intern) {
         roleInfo = "School Name";
     }
+    inquirer.prompt([{
+        message: `Please provide employee's ${roleInfo}`,
+        name: "jobInfo"
+    },
+    {
+        type: "list",
+        message: "Would you like to add an employee?",
+        choices: [
+            "yes",
+            "no",
+        ],
+        name: "addEmployee"
+    }])
+    .then(function({jobInfo, addEmployee}){
+        let newEmployee;
+        if (job === "Intern") {
+            newEmployee
+        }
+    })
 
     
     }
