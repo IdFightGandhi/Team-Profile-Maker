@@ -61,17 +61,27 @@ function addMember () {
     .then(function({jobInfo, addEmployee}){
         let newEmployee;
         if (job === "Intern") {
-            newEmployee = new Intern(name, id, email, school);
+            newEmployee = new Intern(name, id, email, roleInfo);
 
         }else if (role ===Engineer) {
-            newEmployee = new Engineer(name, id, email, github);
-        }else (role === Manager) {
-            newEmployee = new Manager(name, id, email, officeNumber);
+            newEmployee = new Engineer(name, id, email, roleInfo);
+
+        }else  {
+            newEmployee = new Manager(name, id, email, roleInfo);
         }
-    })
+        employees.push(newMember);
+        addHtml(newEmployee)
+        .then(function() {
+            if (addEmployee === "yes") {
+                addEmployee();
+            } else {
+                finishHtml();
+            }    
+            
+
+            
+        });
+    });
 
     
-    }
-    
-})
-}
+})};
