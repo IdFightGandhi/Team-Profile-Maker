@@ -3,6 +3,10 @@ const fs = require('fs');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
+const path = require('path');
+
+const OUTPUT_DIR = path.resolve(__dirname, 'output');
+const outputPath = path.join(OUTPUT_DIR, 'index.html');
 
 const employees = [];
 
@@ -24,7 +28,7 @@ function addMember () {
         name: "job-title"
     },
     {
-        message: "Enter employee's ID number",
+        message: "Enter employee ID number",
         name: "id"
     },
     {
@@ -34,20 +38,20 @@ function addMember () {
 ])
 .then (function({name, role, id, email}){
 
-    let jobInfo = "";
+    let roleInfo = "";
 
-    if (job === "Manager") {
+    if (role === "Manager") {
         roleInfo = "Office Number";
 
-    }else if (job === "Engineer") {
+    }else if (role === "Engineer") {
         roleInfo = "GitHub Account";
 
-    }else (job === Intern) {
+    }else if (role === Intern) {
         roleInfo = "School Name";
     }
     inquirer.prompt([{
         message: `Please provide employee's ${roleInfo}`,
-        name: "jobInfo"
+        name: "roleInfo"
     },
     {
         type: "list",
@@ -58,9 +62,9 @@ function addMember () {
         ],
         name: "addEmployee"
     }])
-    .then(function({jobInfo, addEmployee}){
+    .then(function({roleInfo, addEmployee}){
         let newEmployee;
-        if (job === "Intern") {
+        if (roleInfo === "Intern") {
             newEmployee = new Intern(name, id, email, roleInfo);
 
         }else if (role ===Engineer) {
@@ -69,19 +73,26 @@ function addMember () {
         }else  {
             newEmployee = new Manager(name, id, email, roleInfo);
         }
-        employees.push(newMember);
-        addHtml(newEmployee)
-        .then(function() {
-            if (addEmployee === "yes") {
-                addEmployee();
-            } else {
-                finishHtml();
-            }    
+        employees.push(newEmployee);
+        console.log(employees);
+        // addHtml(newEmployee)
+        // .then(function() {
+        //     if (addEmployee === "yes") {
+        //         // addEmployee();
+
+        //     } else {
+        //         finishHtml();
+        //     }    
             
 
             
-        });
+        // });
+
     });
 
     
+    
 })};
+
+addMember();
+
