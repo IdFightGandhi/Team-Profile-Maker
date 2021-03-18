@@ -30,7 +30,7 @@ function addMember () {
             "Engineer",
             "Manager"
         ],
-        name: "job-title"
+        name: "role"
     },
     {
         message: "Enter employee ID number",
@@ -72,7 +72,7 @@ function addMember () {
         if (roleInfo === "Intern") {
             newEmployee = new Intern(name, id, email, roleInfo);
 
-        }else if (role ===Engineer) {
+        }else if (role ==="Engineer") {
             newEmployee = new Engineer(name, id, email, roleInfo);
 
         }else  {
@@ -83,7 +83,7 @@ function addMember () {
         addHtml(newEmployee)
         .then(function() {
             if (addEmployee === "yes") {
-                // addEmployee();
+                 addMember();
 
             } else {
                 finishHtml();
