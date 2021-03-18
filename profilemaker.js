@@ -10,6 +10,11 @@ const path = require('path');
 
 const employees = [];
 
+function startTeamBuilder() {
+    startHtml();
+    addMember();
+}
+
 
 
 function addMember () {
@@ -94,7 +99,7 @@ function addMember () {
     
 })};
 
-function startHTML() {
+function startHtml() {
     const html = `<!DOCTYPE html>
     <html lang="en">
     <head>
@@ -170,4 +175,22 @@ function addHtml(member) {
             return resolve();
         });
     });
+
 }
+function finishHtml() {
+    const html = `</div>
+    </div>
+        
+    </body>
+    </html>`;
+
+    fs.appendFile("./index.html", html, function (err) {
+        if (err) {
+            console.log(err);
+        };
+    });
+    console.log ("finish check");
+};
+
+startTeamBuilder();
+
